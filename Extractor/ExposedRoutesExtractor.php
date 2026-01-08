@@ -58,7 +58,7 @@ class ExposedRoutesExtractor implements ExposedRoutesExtractorInterface
                 $expose = $route->getOption('expose');
 
                 if (false !== $expose && 'false' !== $expose) {
-                    $routes->add($name, $route);
+                    $routes->add((string)$name, $route);
                 }
                 continue;
             }
@@ -77,7 +77,7 @@ class ExposedRoutesExtractor implements ExposedRoutesExtractorInterface
 
             $route = clone $route;
             $route->setOption('expose', $domain);
-            $routes->add($name, $route);
+            $routes->add((string)$name, $route);
         }
 
         return $routes;
